@@ -1,0 +1,6 @@
+c:\users\irisawa masaru\documents\visual studio 2013\Projects\imgodr\imgodr\bin\Release\imgodr.exe.config
+c:\users\irisawa masaru\documents\visual studio 2013\Projects\imgodr\imgodr\bin\Release\imgodr.exe
+c:\users\irisawa masaru\documents\visual studio 2013\Projects\imgodr\imgodr\bin\Release\imgodr.pdb
+c:\users\irisawa masaru\documents\visual studio 2013\Projects\imgodr\imgodr\obj\Release\imgodr.csprojResolveAssemblyReference.cache
+c:\users\irisawa masaru\documents\visual studio 2013\Projects\imgodr\imgodr\obj\Release\imgodr.exe
+c:\users\irisawa masaru\documents\visual studio 2013\Projects\imgodr\imgodr\obj\Release\imgodr.pdb
