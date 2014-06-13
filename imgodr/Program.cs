@@ -30,7 +30,7 @@ namespace imgodr
 		private static void Usage()
 		{
 			Console.WriteLine("USAGE:");
-			Console.WriteLine("    imgodr.exe パス");
+			Console.WriteLine("    imgodr.exe {directory(s) or file(s)}");
 		}
 	}
 }

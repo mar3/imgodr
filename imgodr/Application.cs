@@ -75,7 +75,6 @@ namespace imgodr
 		private static void Process2(string path)
 		{
 			// (2) ID を用いて EXIF 属性を読み出す実装
-
 			System.Collections.IDictionary meta = ExifReader2.ReadExifInfo(path);
 			if (meta == null)
 			{
