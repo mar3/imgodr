@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Application.cs" />
     <Compile Include="ExifReader2.cs" />
-    <Compile Include="ExifReader1.cs" />
     <Compile Include="HardMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

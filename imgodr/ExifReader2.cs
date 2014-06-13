@@ -25,7 +25,7 @@ namespace imgodr
 				System.Collections.IDictionary result = new System.Collections.Hashtable();
 				foreach (System.Drawing.Imaging.PropertyItem p in b.PropertyItems)
 				{
-					object value = _ValueOf(p);
+					object value = ValueOf(p);
 					result["" + p.Id] = value;
 					// Console.WriteLine("ID=[{0}], TYPE=[{1}], VALUE=[{2}], LEN=[{3}]", i.Id, i.Type, value, i.Len);
 				}
@@ -52,7 +52,7 @@ namespace imgodr
 		/// </summary>
 		/// <param name="n"></param>
 		/// <returns></returns>
-		private static object _ValueOf(System.Drawing.Imaging.PropertyItem item)
+		private static object ValueOf(System.Drawing.Imaging.PropertyItem item)
 		{
 			try
 			{
@@ -88,50 +88,51 @@ namespace imgodr
 					return null;
 				}
 
-				if (item.Type == 1)
-				{
-					//Byte 8bit符号なし整数(1バイト整数型) ※研究中。エンディアンとかどうなってんの...
-					long value = 0;
-					foreach (byte b in item.Value)
-					{
-						value = value << 8;
-						value = value + b;
-					}
-					return value;
-					//return System.BitConverter.ToUInt32(item.Value, 0);
-				}
-				else if (item.Type == 2)
-				{
-					//ASCII	7bitの文字列
-					return Encoding.ASCII.GetString(item.Value);
-				}
-				else if (item.Type == 3)
-				{
-					//Short	16bit符号なし整数(2バイト短整数型)
-					return System.BitConverter.ToUInt16(item.Value, 0);
-				}
-				else if (item.Type == 4)
-				{
-					//Long	32bit符号なし整数（8バイト長整数型）
-					return System.BitConverter.ToUInt32(item.Value, 0); // エラーが出なくなったので多分正しいっぽい...
-				}
-				else if (item.Type == 5)
-				{
-					//Rational	符号無し有理数 ↓みつけたサンプルに倣っているがおかしい...
-					return BitConverter.ToInt16(item.Value, 0);
-					// return System.BitConverter.ToDouble(item.Value, 0);
-				}
-				else if (item.Type == 7)
-				{
-					//Undefined	8bit整数 ↓独自
-					return (int)item.Value[0];
-					// return System.BitConverter.ToInt16(item.Value, 0);
-				}
-				else if (item.Type == 10)
-				{
-					//SRational	符号付き有理数
-					return System.BitConverter.ToInt16(item.Value, 0) / 2.0;
-				}
+				// 全くダメ
+				//if (item.Type == 1)
+				//{
+				//	//Byte 8bit符号なし整数(1バイト整数型) ※研究中。エンディアンとかどうなってんの...
+				//	long value = 0;
+				//	foreach (byte b in item.Value)
+				//	{
+				//		value = value << 8;
+				//		value = value + b;
+				//	}
+				//	return value;
+				//	//return System.BitConverter.ToUInt32(item.Value, 0);
+				//}
+				//else if (item.Type == 2)
+				//{
+				//	//ASCII	7bitの文字列
+				//	return Encoding.ASCII.GetString(item.Value);
+				//}
+				//else if (item.Type == 3)
+				//{
+				//	//Short	16bit符号なし整数(2バイト短整数型)
+				//	return System.BitConverter.ToUInt16(item.Value, 0);
+				//}
+				//else if (item.Type == 4)
+				//{
+				//	//Long	32bit符号なし整数（8バイト長整数型）
+				//	return System.BitConverter.ToUInt32(item.Value, 0); // エラーが出なくなったので多分正しいっぽい...
+				//}
+				//else if (item.Type == 5)
+				//{
+				//	//Rational	符号無し有理数 ↓みつけたサンプルに倣っているがおかしい...
+				//	return BitConverter.ToInt16(item.Value, 0);
+				//	// return System.BitConverter.ToDouble(item.Value, 0);
+				//}
+				//else if (item.Type == 7)
+				//{
+				//	//Undefined	8bit整数 ↓独自
+				//	return (int)item.Value[0];
+				//	// return System.BitConverter.ToInt16(item.Value, 0);
+				//}
+				//else if (item.Type == 10)
+				//{
+				//	//SRational	符号付き有理数
+				//	return System.BitConverter.ToInt16(item.Value, 0) / 2.0;
+				//}
 				return item.Value;
 			}
 			catch(Exception e)

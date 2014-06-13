@@ -40,25 +40,6 @@ namespace imgodr
 			}
 		}
 
-		private static void Process1(string path)
-		{
-			// (1) Decoer を用いて EXIF 属性を読み出す実装
-			System.Collections.IDictionary meta = ExifReader1.DumpExifInfo1(path);
-			if (meta == null)
-			{
-				return;
-			}
-
-			// 撮影日時を調べます。
-			object date_taken = meta["DateTaken"];
-			if (date_taken == null)
-			{
-				return;
-			}
-
-			System.Console.WriteLine("{0}, 撮影日時=[{1}]", path, Utils.ToString(date_taken));
-		}
-
 		private static string MakePath(System.IO.FileInfo info, DateTime date_taken, int i)
 		{
 			string date_part_format = "yyyy年MM月dd日 HH時mm分ss秒";
