@@ -83,7 +83,7 @@ namespace imgodr
 				{
 				}
 
-				Console.WriteLine("[ERROR] DateTaken タグを解析できませんでした。この書式には対応できません。[" + value + "]");
+				Console.WriteLine("[ERROR] 0x9003:DateTimeOriginal 解析できませんでした。この書式には対応していません。[" + value + "]");
 				return null;
 			}
 
