@@ -50,7 +50,7 @@ namespace imgodr
 		/// 
 		/// ID や TYPE を熟知したうえでの実装になるため、注意深く実装する必要があります。
 		/// </summary>
-		/// <param name="n"></param>
+		/// <param name="item"></param>
 		/// <returns></returns>
 		private static object ValueOf(System.Drawing.Imaging.PropertyItem item)
 		{
