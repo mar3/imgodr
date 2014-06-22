@@ -27,15 +27,13 @@ namespace imgodr
 			{
 				System.Text.StringBuilder buffer = new System.Text.StringBuilder();
 				System.Collections.IDictionary dic = (System.Collections.IDictionary)unknown;
-				foreach (string key in dic.Keys)
+				foreach (System.Collections.DictionaryEntry e in dic)
 				{
 					if (buffer.Length != 0)
-					{
 						buffer.Append(", ");
-					}
-					buffer.Append(key);
+					buffer.Append(e.Key);
 					buffer.Append("=");
-					buffer.Append(dic[key]);
+					buffer.Append(e.Value);
 				}
 				return buffer.ToString();
 			}
@@ -46,7 +44,7 @@ namespace imgodr
 				return d.ToString("yyyy-MM-dd HH:mm:ss.fff");
 			}
 			
-			return "" + unknown;
+			return unknown.ToString();
 		}
 
 		public static DateTime? ParseDate(object unknown)

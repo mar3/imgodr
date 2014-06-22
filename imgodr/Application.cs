@@ -16,9 +16,7 @@ namespace imgodr
 		public static void Find(string path)
 		{
 			if (path == null)
-			{
 				return;
-			}
 
 			if (System.IO.Directory.Exists(path))
 			{
@@ -60,38 +58,25 @@ namespace imgodr
 
 		private static void Process(string path)
 		{
-			// (2) ID を用いて EXIF 属性を読み出す実装
-			System.Collections.IDictionary meta = ExifReader.ReadExifInfo(path);
+			// EXIF 属性を読み出す
+			Exif meta = Exif.Read(path);
 			if (meta == null)
-			{
 				return;
-			}
 
-			DateTime? date_taken = Utils.ParseDate(meta["" + 0x9003]);
+			// DateTimeOriginal
+			DateTime? date_taken = Utils.ParseDate(meta[0x9003]);
 			if (date_taken == null)
-			{
 				return;
-			}
 
 			Console.WriteLine("{0} (撮影日時: {1})", path, Utils.ToString(date_taken));
-
 			System.IO.FileInfo info = new System.IO.FileInfo(path);
-
-			for (int i = 0; i < 10000; i++)
+			for (int i = 0; ; i++)
 			{
 				string new_path = MakePath(info, date_taken.Value, i);
-
 				if (path == new_path)
-				{
-					// 変更の必要なし
 					break;
-				}
-	
 				if (System.IO.File.Exists(new_path))
-				{
 					continue;
-				}
-
 				System.IO.File.Move(path, new_path);
 				break;
 			}
