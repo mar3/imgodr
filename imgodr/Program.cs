@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace imgodr
 {
-	class Program
+	internal sealed class Program
 	{
-		static void Main(string[] args)
+		private Program()
+		{
+
+		}
+
+		public static void Main(string[] args)
 		{
 			try
 			{

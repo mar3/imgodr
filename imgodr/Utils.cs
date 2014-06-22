@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace imgodr
 {
-	sealed class Utils
+	internal sealed class Utils
 	{
 		private Utils()
 		{
@@ -51,15 +51,12 @@ namespace imgodr
 
 		public static DateTime? ParseDate(object unknown)
 		{
-			//
 			if (unknown == null)
 				return null;
-
-			//
+	
 			if (unknown is DateTime)
 				return (DateTime)unknown;
-
-			//
+			
 			try
 			{
 				return DateTime.ParseExact(unknown.ToString(), "yyyy-MM-dd HH:mm:ss.fff", null);
@@ -68,7 +65,6 @@ namespace imgodr
 			{
 			}
 
-			//
 			try
 			{
 				return DateTime.ParseExact(unknown.ToString(), "yyyy/MM/dd HH:mm:ss.fff", null);
@@ -76,8 +72,7 @@ namespace imgodr
 			catch
 			{
 			}
-
-			//
+			
 			try
 			{
 				return DateTime.ParseExact(unknown.ToString(), "yyyy-MM-dd HH:mm:ss", null);
@@ -86,7 +81,6 @@ namespace imgodr
 			{
 			}
 
-			//
 			try
 			{
 				return DateTime.ParseExact(unknown.ToString(), "yyyy-MM-dd H:mm:ss", null);
@@ -95,7 +89,6 @@ namespace imgodr
 			{
 			}
 
-			//
 			try
 			{
 				return DateTime.ParseExact(unknown.ToString(), "yyyy/MM/dd HH:mm:ss", null);
@@ -104,7 +97,6 @@ namespace imgodr
 			{
 			}
 
-			//
 			try
 			{
 				return DateTime.ParseExact(unknown.ToString(), "yyyy/MM/dd H:mm:ss", null);
@@ -113,7 +105,6 @@ namespace imgodr
 			{
 			}
 
-			//
 			try
 			{
 				return DateTime.ParseExact(unknown.ToString(), "yyyy-MM-dd HH:mm", null);
@@ -122,7 +113,6 @@ namespace imgodr
 			{
 			}
 
-			//
 			try
 			{
 				return DateTime.ParseExact(unknown.ToString(), "yyyy/MM/dd HH:mm", null);
@@ -131,7 +121,6 @@ namespace imgodr
 			{
 			}
 
-			//
 			try
 			{
 				return DateTime.ParseExact(unknown.ToString(), "yyyy-MM-dd", null);
