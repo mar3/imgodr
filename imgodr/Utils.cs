@@ -24,27 +24,31 @@ namespace imgodr
 				return "";
 
 			if (unknown is System.Collections.IDictionary)
-			{
-				System.Text.StringBuilder buffer = new System.Text.StringBuilder();
-				System.Collections.IDictionary dic = (System.Collections.IDictionary)unknown;
-				foreach (System.Collections.DictionaryEntry e in dic)
-				{
-					if (buffer.Length != 0)
-						buffer.Append(", ");
-					buffer.Append(e.Key);
-					buffer.Append("=");
-					buffer.Append(e.Value);
-				}
-				return buffer.ToString();
-			}
-
+				return ToString((System.Collections.IDictionary)unknown);
+	
 			if (unknown is System.DateTime)
-			{
-				System.DateTime d = (System.DateTime)unknown;
-				return d.ToString("yyyy-MM-dd HH:mm:ss.fff");
-			}
+				return ToString((System.DateTime)unknown);
 			
 			return unknown.ToString();
+		}
+
+		public static string ToString(System.DateTime date)
+		{
+			return date.ToString("yyyy-MM-dd HH:mm:ss.fff");
+		}
+
+		public static string ToString(System.Collections.IDictionary dic)
+		{
+			System.Text.StringBuilder buffer = new System.Text.StringBuilder();
+			foreach (System.Collections.DictionaryEntry e in dic)
+			{
+				if (buffer.Length != 0)
+					buffer.Append(", ");
+				buffer.Append(e.Key);
+				buffer.Append("=");
+				buffer.Append(e.Value);
+			}
+			return buffer.ToString();
 		}
 
 		public static DateTime? ParseDate(object unknown)
