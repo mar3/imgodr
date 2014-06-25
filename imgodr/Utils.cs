@@ -22,13 +22,10 @@ namespace imgodr
 		{
 			if (unknown == null)
 				return "";
-
 			if (unknown is System.Collections.IDictionary)
 				return ToString((System.Collections.IDictionary)unknown);
-	
 			if (unknown is System.DateTime)
 				return ToString((System.DateTime)unknown);
-			
 			return unknown.ToString();
 		}
 
@@ -46,7 +43,7 @@ namespace imgodr
 					buffer.Append(", ");
 				buffer.Append(e.Key);
 				buffer.Append("=");
-				buffer.Append(e.Value);
+				buffer.Append(ToString(e.Value));
 			}
 			return buffer.ToString();
 		}
