@@ -56,9 +56,7 @@ namespace imgodr
 		private static object ValueOf(System.Drawing.Imaging.PropertyItem item)
 		{
 			if (item == null)
-			{
 				return null;
-			}
 
 			// =========================================================================
 			// DateTimeOriginal(撮影日時)
