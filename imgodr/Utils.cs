@@ -24,12 +24,12 @@ namespace imgodr
 				return "";
 			if (unknown is System.Collections.IDictionary)
 				return ToString((System.Collections.IDictionary)unknown);
-			if (unknown is System.DateTime)
-				return ToString((System.DateTime)unknown);
+			if (unknown is DateTime)
+				return ToString((DateTime)unknown);
 			return unknown.ToString();
 		}
 
-		public static string ToString(System.DateTime date)
+		public static string ToString(DateTime date)
 		{
 			return date.ToString("yyyy-MM-dd HH:mm:ss.fff");
 		}
