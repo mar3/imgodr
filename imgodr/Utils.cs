@@ -24,12 +24,12 @@ namespace imgodr
 				return "";
 			if (unknown is System.Collections.IDictionary)
 				return ToString((System.Collections.IDictionary)unknown);
-			if (unknown is DateTime)
-				return ToString((DateTime)unknown);
+			if (unknown is System.DateTime)
+				return ToString((System.DateTime)unknown);
 			return unknown.ToString();
 		}
 
-		public static string ToString(DateTime date)
+		public static string ToString(System.DateTime date)
 		{
 			return date.ToString("yyyy-MM-dd HH:mm:ss.fff");
 		}
@@ -41,7 +41,7 @@ namespace imgodr
 			{
 				if (buffer.Length != 0)
 					buffer.Append(", ");
-				buffer.Append(ToString(e.Key));
+				buffer.Append(e.Key);
 				buffer.Append("=");
 				buffer.Append(ToString(e.Value));
 			}
