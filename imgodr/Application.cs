@@ -76,11 +76,16 @@ namespace imgodr
 			if (date_taken == null)
 				return;
 
-			Console.WriteLine("{0} (撮影日時: {1})", path, Utils.ToString(date_taken));
+			Process(path, date_taken.Value);
+		}
+
+		private static void Process(string path, DateTime date)
+		{
+			Console.WriteLine("{0} (撮影日時: {1})", path, Utils.ToString(date));
 			System.IO.FileInfo info = new System.IO.FileInfo(path);
 			for (int i = 0; ; i++)
 			{
-				string new_path = MakePath(info, date_taken.Value, i);
+				string new_path = MakePath(info, date, i);
 				if (path == new_path)
 					break;
 				if (System.IO.File.Exists(new_path))
