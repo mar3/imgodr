@@ -18,6 +18,11 @@ namespace imgodr
 			return frame == null ? null : frame.Metadata;
 		}
 
+		/// <summary>
+		/// オブジェクトの文字列表現を返します。
+		/// </summary>
+		/// <param name="unknown"></param>
+		/// <returns></returns>
 		public static string ToString(object unknown)
 		{
 			if (unknown == null)
