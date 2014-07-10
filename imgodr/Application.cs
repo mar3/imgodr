@@ -43,6 +43,14 @@ namespace imgodr
 			}
 		}
 
+		public static void Find(params string[] paths)
+		{
+			foreach (string path in paths)
+			{
+				Find(path);
+			}
+		}
+
 		private static string MakePath(System.IO.FileInfo info, DateTime date_taken, int i)
 		{
 			string date_part_format = "yyyy年MM月dd日 HH時mm分ss秒";

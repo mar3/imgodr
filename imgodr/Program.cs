@@ -17,14 +17,13 @@ namespace imgodr
 		{
 			try
 			{
-				string path = 1 <= args.Length ? args[0] : "";
-				if (path == "")
+				if(args.Length == 0)
 				{
 					Usage();
 					return;
 				}
 
-				Application.Find(path);
+				Application.Find(args);
 			}
 			catch (Exception e)
 			{
