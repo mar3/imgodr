@@ -1,5 +1,6 @@
 imgodr
 ======
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/mar3/imgodr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ##概要
 
