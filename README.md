@@ -1,7 +1,5 @@
 imgodr
 ======
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/mar3/imgodr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
 ##概要
 
 写真を撮影日(EXIF: 0x9003, DateTimeOriginal)で並べ替え(rename)ます。
